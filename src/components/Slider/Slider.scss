@@ -1,0 +1,58 @@
+@import "../../style/colors.scss";
+
+.slider {
+  margin-top: 30px;
+  img {
+    max-width: 1280px;
+    border-radius: 20px;
+  }
+
+  .swiper-container-horizontal
+    > .swiper-pagination-bullets
+    .swiper-pagination-bullet {
+    margin: 0 5px;
+  }
+
+  .swiper-container .swiper-pagination-bullet {
+    width: 12px;
+    height: 12px;
+    background-color: rgb(84, 76, 72);
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 300ms ease-out 0s;
+    &-active {
+      background-color: rgb(197, 202, 206);
+    }
+  }
+
+  .swiper-button-prev,
+  .swiper-button-next {
+    color: $accent-color;
+  }
+
+  .slider__small {
+    .swiper-container .swiper-container-initialized .swiper-container-horizontal{
+       width: 100%;
+    }
+
+    // .slider__wrapper {
+    //     display: flex;
+    //     justify-content: center;
+    // }
+
+    .swiper-slide {
+        margin: 0;
+    }
+  }
+}
+
+.slider__small .swiper-button-prev,
+.slider__small .swiper-button-next {
+  display: none;
+  position: relative;
+  ::after {
+    content: "";
+    position: absolute;
+    background-image: "";
+  }
+}

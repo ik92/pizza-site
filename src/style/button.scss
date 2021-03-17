@@ -1,0 +1,45 @@
+@import "./colors.scss";
+
+.button {
+  border: none;
+  border-radius: 100px;
+  cursor: pointer;
+
+  &--grey {
+    font-size: 14px;
+    background-color: $grey-background;
+    padding: 10px 16px;
+    color: $grey-text;
+    transition: 0.5s ease-in-out;
+
+    &:hover {
+      background-color: darken($color: $grey-background, $amount: 5%);
+      transition: 0.5s ease-in-out;
+    }
+  }
+
+  &--orange,
+  &--peach {
+    font-size: 18px;
+    padding: 10px 20px;
+    color: #fff;
+    transition: 0.5s ease-in-out;
+    &:hover {
+      transition: 0.5s ease-in-out;
+    }
+  }
+
+  &--peach {
+    background-color: $peach;
+    &:hover {
+      background-color: darken($color: $peach, $amount: 5%);
+    }
+  }
+
+  &--orange {
+    background-color: $accent-color;
+    &:hover {
+      background-color: darken($color: $accent-color, $amount: 5%);
+    }
+  }
+}
