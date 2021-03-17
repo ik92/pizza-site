@@ -1,6 +1,11 @@
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import SwiperCore, { Navigation, Pagination, Autoplay } from "swiper";
+import SwiperCore, {
+  Navigation,
+  Pagination,
+  Autoplay,
+  Mousewheel,
+} from "swiper";
 import classNames from "classnames";
 
 import "./Slider.scss";
@@ -17,9 +22,10 @@ function Slider({
   navigation,
   pagination,
   autoplay,
+  mousewheel,
   size,
 }) {
-  SwiperCore.use([Navigation, Pagination, Autoplay]);
+  SwiperCore.use([Navigation, Pagination, Autoplay, Mousewheel]);
 
   return (
     <div className={classNames("slider", { [`slider__${size}`]: size })}>
@@ -29,24 +35,21 @@ function Slider({
         navigation={navigation}
         pagination={pagination}
         autoplay={autoplay}
+        mousewheel={mousewheel}
       >
-        {images ? (
-          images.map((image) => (
-            <SwiperSlide>
-              <img src={image} alt="Slider_image" />
-            </SwiperSlide>
-          ))
-        ) : (
-          <div className="slider__wrapper">
-            {Array(10)
+        {images
+          ? images.map((image) => (
+              <SwiperSlide>
+                <img src={image} alt="Slider_image" />
+              </SwiperSlide>
+            ))
+          : Array(10)
               .fill(0)
               .map((page) => (
                 <SwiperSlide>
                   <CardSlider />
                 </SwiperSlide>
               ))}
-          </div>
-        )}
       </Swiper>
     </div>
   );

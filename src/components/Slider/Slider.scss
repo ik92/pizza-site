@@ -30,18 +30,19 @@
     color: $accent-color;
   }
 
+  .slider__big {
+      cursor: pointer;
+  }
+
   .slider__small {
-    .swiper-container .swiper-container-initialized .swiper-container-horizontal{
-       width: 100%;
+    .swiper-container
+      .swiper-container-initialized
+      .swiper-container-horizontal {
+      width: 100%;
     }
 
-    // .slider__wrapper {
-    //     display: flex;
-    //     justify-content: center;
-    // }
-
     .swiper-slide {
-        margin: 0;
+      margin: 0;
     }
   }
 }
@@ -49,10 +50,4 @@
 .slider__small .swiper-button-prev,
 .slider__small .swiper-button-next {
   display: none;
-  position: relative;
-  ::after {
-    content: "";
-    position: absolute;
-    background-image: "";
-  }
 }
