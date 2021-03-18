@@ -1,0 +1,36 @@
+@import "../../style/colors.scss";
+
+.delivery__block {
+  &-title {
+    margin-bottom: 30px;
+  }
+  &-info {
+    display: flex;
+    justify-content: space-between;
+    &-item {
+      width: 22%;
+      &-down {
+        margin-top: 10px;
+      }
+      h3 {
+        margin-bottom: 10px;
+        color: $accent-color;
+      }
+    }
+  }
+}
+
+.map {
+  iframe {
+    border-width: inherit;
+    -moz-transition: all 1s ease-out;
+    -o-transition: all 1s ease-out;
+    -webkit-transition: all 1s ease-out;
+
+    &:hover {
+      -webkit-transform: scale(1.2);
+      -moz-transform: scale(1.2);
+      -o-transform: scale(1.2);
+    }
+  }
+}

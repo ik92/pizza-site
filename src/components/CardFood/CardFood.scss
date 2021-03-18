@@ -1,3 +1,5 @@
+@import "../../style/colors.scss";
+
 .card__food {
   display: flex;
   flex-direction: column;
@@ -5,8 +7,20 @@
   max-width: 300px;
   height: 450px;
   margin-top: 40px;
-  img {
-    width: 300px;
+  border: 2px solid #000;
+  padding: 10px;
+  border-radius: 10px;
+
+  &:hover {
+    background-color: rgba($color: $accent-color, $alpha: 0.6) ;
+    transition: all .5s ease-in-out;
+  }
+
+  &-img {
+    margin: 0 auto;
+    img {
+      width: 280px;
+    }
   }
 
   &-down {

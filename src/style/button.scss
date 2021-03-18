@@ -30,16 +30,17 @@
   }
 
   &--peach {
-    background-color: $peach;
+    background-color: $peach-background;
+    color: $peach-text;
     &:hover {
-      background-color: darken($color: $peach, $amount: 5%);
+      background-color: darken($color: $peach-background, $amount: 10%);
     }
   }
 
   &--orange {
     background-color: $accent-color;
     &:hover {
-      background-color: darken($color: $accent-color, $amount: 5%);
+      background-color: darken($color: $accent-color, $amount: 10%);
     }
   }
 }

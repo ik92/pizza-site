@@ -1,0 +1,48 @@
+.footer {
+  background-color: rgb(69, 75, 84);
+  margin-top: 30px;
+
+  &__up {
+    justify-content: space-between;
+    border-bottom: 1px solid #ccc;
+    &-block {
+      max-width: 30%;
+    }
+  }
+
+  &__down {
+    &-block {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      &-left {
+        display: flex;
+        li {
+          margin-right: 15px;
+          a {
+            color: #000;
+          }
+        }
+      }
+      &-right {
+        display: flex;
+        &-img {
+          margin-left: 15px;
+          img {
+            width: 30px;
+            height: 30px;
+          }
+        }
+      }
+    }
+  }
+
+  &__up,
+  &__down {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 20px 0;
+    display: flex;
+  }
+}

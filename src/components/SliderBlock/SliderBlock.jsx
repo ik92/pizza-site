@@ -13,7 +13,7 @@ import sliderImg6 from "../../assets/img/slider/slider-6.jpeg";
 
 function SliderBlock() {
   return (
-    <>
+    <div classNames="slider__block">
       <Slider
         images={[
           sliderImg1,
@@ -41,7 +41,7 @@ function SliderBlock() {
         loop
         mousewheel
       />
-    </>
+    </div>
   );
 }
 
