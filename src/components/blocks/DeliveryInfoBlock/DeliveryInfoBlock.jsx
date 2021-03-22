@@ -41,7 +41,7 @@ function DeliveryInfoBlock() {
             </h5>
           </div>
         </div>
-        <div className="delivery__block-info-item">
+        <div className="delivery__block-info-item map__block">
           <h3>ЗОНА ДОСТАВКИ ОГРАНИЧЕНА</h3>
 
           <div className="map" style={{ position: "relative", overflow: "hidden" }}>
@@ -73,8 +73,7 @@ function DeliveryInfoBlock() {
                 src="https://yandex.ru/map-widget/v1/-/CCQlnYTJ3D"
                 width="300"
                 height="300"
-                // frameborder="1"
-                allowfullscreen="true"
+                allowFullscreen="true"
                 style={{ position: "relative" }}
               ></iframe>
           </div>

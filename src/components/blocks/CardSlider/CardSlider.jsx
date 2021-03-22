@@ -2,7 +2,7 @@ import React from "react";
 
 import "./CardSlider.scss";
 
-import cardSlider from "../../assets/img/card-slider.jpeg";
+import cardSlider from "../../../assets/img/card-slider.jpeg";
 
 function CardSlider() {
   return (

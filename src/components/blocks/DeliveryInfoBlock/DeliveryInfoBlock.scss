@@ -1,4 +1,4 @@
-@import "../../style/colors.scss";
+@import "../../../style/colors.scss";
 
 .delivery__block {
   &-title {
@@ -31,6 +31,27 @@
       -webkit-transform: scale(1.2);
       -moz-transform: scale(1.2);
       -o-transform: scale(1.2);
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .map__block {
+    h3 {
+      display: none;
+    }
+    .map {
+      display: none;
+    }
+  }
+
+  .delivery__block {
+    &-info {
+      flex-wrap: wrap;
+      &-item {
+        margin-top: 15px;
+        width: 100%;
+      }
     }
   }
 }

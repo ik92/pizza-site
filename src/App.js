@@ -1,15 +1,21 @@
-import SliderBlock from "./components/SliderBlock/SliderBlock";
-import BlockFood from "./components/BlockFood/BlockFood";
-import DeliveryInfoBlock from "./components/DeliveryInfoBlock/DeliveryInfoBlock";
+import {
+  Header,
+  Menu,
+  SliderBlock,
+  BlockFood,
+  DeliveryInfoBlock,
+  Footer,
+} from "./components/blocks";
 
 import "./App.scss";
 import "swiper/swiper.scss";
-import Footer from "./components/Footer/Footer";
 
 function App() {
   return (
     <div className="App">
       <div className="container">
+        <Header />
+        <Menu />
         <SliderBlock />
         <BlockFood />
         <BlockFood />

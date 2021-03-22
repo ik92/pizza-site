@@ -1,16 +1,4 @@
-@import "./style/header.scss";
-@import "./style/menu.scss";
-@import "./style/button.scss";
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Roboto", -apple-system, system-ui, sans-serif;
-  outline: none;
-  text-decoration: none;
-  list-style: none;
-}
+@import "./style/global.scss";
 
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
@@ -23,9 +11,4 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
-}
-
-.container {
-  max-width: 1280px;
-  margin: 0 auto;
 }

@@ -13,7 +13,8 @@ import "swiper/swiper.scss";
 import "swiper/components/navigation/navigation.scss";
 import "swiper/components/pagination/pagination.scss";
 import "swiper/components/scrollbar/scrollbar.scss";
-import CardSlider from "../CardSlider/CardSlider";
+
+import { CardSlider } from "../../blocks/index";
 
 function Slider({
   images,

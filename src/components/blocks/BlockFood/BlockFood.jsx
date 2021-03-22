@@ -1,6 +1,6 @@
 import React from "react";
 
-import CardFood from "../CardFood/CardFood";
+import { CardFood } from "../index";
 
 import "./BlockFood.scss";
 

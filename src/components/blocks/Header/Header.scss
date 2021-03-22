@@ -1,4 +1,4 @@
-@import "./colors.scss";
+@import "../../../style/colors.scss";
 
 .header {
   margin-top: 30px;
@@ -63,7 +63,9 @@
         line-height: 15px;
         position: relative;
 
-        img {
+        &::after {
+          content: "";
+          background-image: url("../../../assets/img/star.svg");
           width: 20px;
           height: 20px;
           position: absolute;
@@ -97,5 +99,47 @@
   button {
     display: flex;
     align-items: center;
+  }
+}
+
+@media (max-width: 900px) {
+  .header__wrapper {
+    .header__wrapper-left {
+      .header__logo,
+      .header__delivery {
+        margin-right: 10px;
+      }
+    }
+  }
+}
+
+@media (max-width: 800px) {
+  .header__wrapper {
+    .header__wrapper-left {
+      flex-direction: column;
+      .header__logo,
+      .header__delivery,
+      .header__phone {
+        padding: 5px 5px;
+      }
+      .header__delivery {
+        &-time {
+          &::after {
+            top: -5px;
+            right: 196px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 400px) {
+  .header__delivery {
+    &-time {
+      &::after {
+        display: none;
+      }
+    }
   }
 }

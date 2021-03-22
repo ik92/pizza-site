@@ -2,11 +2,11 @@ import React from "react";
 
 import "./Footer.scss";
 
-import socialImg1 from "../../assets/img/social-icon/social-icon1.png";
-import socialImg2 from "../../assets/img/social-icon/social-icon2.png";
-import socialImg3 from "../../assets/img/social-icon/social-icon3.png";
-import socialImg4 from "../../assets/img/social-icon/social-icon4.png";
-import socialImg5 from "../../assets/img/social-icon/social-icon5.png";
+import socialImg1 from "../../../assets/img/social-icon/social-icon1.png";
+import socialImg2 from "../../../assets/img/social-icon/social-icon2.png";
+import socialImg3 from "../../../assets/img/social-icon/social-icon3.png";
+import socialImg4 from "../../../assets/img/social-icon/social-icon4.png";
+import socialImg5 from "../../../assets/img/social-icon/social-icon5.png";
 
 function Footer() {
   return (

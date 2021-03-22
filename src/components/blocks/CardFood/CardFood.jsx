@@ -2,7 +2,8 @@ import React from "react";
 
 import "./CardFood.scss";
 
-import cardFoodImg from "../../assets/img/card-food.jpeg";
+import cardFoodImg from "../../../assets/img/card-food.jpeg";
+import {Button} from "../../ui/index";
 
 function CardFood() {
   return (
@@ -10,7 +11,7 @@ function CardFood() {
       <div className="card__food-img">
         <img src={cardFoodImg} alt="Card-foodimage" />
       </div>
-      
+
       <h3>Ветчина и грибы</h3>
       <h5>Ветчина, шампиньоны, увеличенная порция моцареллы, томатный соус</h5>
       <div className="card__food-down">
@@ -18,7 +19,7 @@ function CardFood() {
           <h3>от 375 Р</h3>
         </div>
         <div className="card__food-down-btn">
-          <button className="button button--peach">Выбрать</button>
+          <Button color="peach" text="Выбрать" />
         </div>
       </div>
     </div>
