@@ -1,11 +1,4 @@
-import {
-  Header,
-  Menu,
-  SliderBlock,
-  BlockFood,
-  DeliveryInfoBlock,
-  Footer,
-} from "./components/blocks";
+import { MainPages } from "./components/pages/index";
 
 import "./App.scss";
 import "swiper/swiper.scss";
@@ -13,19 +6,7 @@ import "swiper/swiper.scss";
 function App() {
   return (
     <div className="App">
-      <div className="container">
-        <Header />
-        <Menu />
-        <SliderBlock />
-        <BlockFood />
-        <BlockFood />
-        <BlockFood />
-        <BlockFood />
-        <BlockFood />
-        <BlockFood />
-        <DeliveryInfoBlock />
-      </div>
-      <Footer />
+      <MainPages />
     </div>
   );
 }

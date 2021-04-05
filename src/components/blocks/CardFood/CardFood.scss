@@ -12,8 +12,8 @@
   border-radius: 10px;
 
   &:hover {
-    background-color: rgba($color: $accent-color, $alpha: 0.6) ;
-    transition: all .5s ease-in-out;
+    background-color: rgba($color: $accent-color, $alpha: 0.6);
+    transition: all 0.5s ease-in-out;
   }
 
   &-img {
@@ -27,5 +27,48 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+  }
+}
+
+.modal__window-content {
+  display: flex;
+  justify-content: space-between;
+
+  .modal__window-img {
+    margin: auto;
+    img {
+      width: 400px;
+      height: 400px;
+    }
+  }
+
+  .modal__window-wrapper {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: space-between;
+
+    .modal__window-description {
+      &-title {
+        font-size: 24px;
+        line-height: 28px;
+        font-weight: 500;
+      }
+
+      &-subtitle {
+        color: rgb(115, 121, 140);
+        font-size: 14px;
+        line-height: 20px;
+        padding: 15px 0;
+      }
+
+      &-btnsize, &-btntype {
+        background-color: $grey-background;
+        margin-top: 10px;
+        border-radius: 100px;
+
+      }
+
+    }
   }
 }
