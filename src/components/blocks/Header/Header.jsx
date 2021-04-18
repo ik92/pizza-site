@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 import { Button } from "../../ui/index";
 
@@ -13,9 +14,9 @@ function Header() {
         <div className="header__wrapper">
           <div className="header__wrapper-left">
             <div className="header__logo">
-              <div className="header__logo-img">
+              <Link to={"/"} className="header__logo-img">
                 <img src={logoImg} alt="Logo_image" />
-              </div>
+              </Link>
               <div className="header__logo-text">
                 <div className="header__logo-text-main">Pizza site</div>
                 <div className="header__logo-text-subtitle">
@@ -27,9 +28,7 @@ function Header() {
               <div className="header__delivery-title">
                 Доставка пиццы <span>Воронеж</span>
               </div>
-              <div className="header__delivery-time">
-                39 мин - 4.8
-              </div>
+              <div className="header__delivery-time">39 мин - 4.8</div>
             </div>
             <div className="header__phone">
               <div className="header__phone-title">8 800 302-00-60</div>

@@ -1,0 +1,58 @@
+@import "../../../style/colors.scss";
+
+.basket__item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 500;
+  padding: 10px 0;
+  border-top: 1px solid rgba($grey-text, 0.5);
+  border-bottom: 1px solid rgba($grey-text, 0.5);
+
+  &-left {
+    align-items: center;
+    display: flex;
+
+    .basket__item-img {
+      margin-right: 20px;
+      img {
+        width: 100px;
+        height: 100px;
+      }
+    }
+
+    .basket__item-descr-subtitle {
+      font-weight: normal;
+      font-size: 12px;
+      line-height: 16px;
+      color: rgb(115, 121, 140);
+      margin-top: 5px;
+    }
+  }
+
+  &-right {
+    display: flex;
+    .basket__item-score {
+      display: flex;
+      .basket__item-num {
+        max-height: 32px;
+        background-color: $grey-background;
+        line-height: 32px;
+      }
+    }
+
+    .basket__item-allprice {
+      line-height: 32px;
+      margin: 0 30px;
+    }
+
+    .basket__item-trash {
+      padding: auto;
+      cursor: pointer;
+      img {
+        width: 20px;
+        height: 32px;
+      }
+    }
+  }
+}

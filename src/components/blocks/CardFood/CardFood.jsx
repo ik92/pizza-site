@@ -2,27 +2,65 @@ import React, { useState } from "react";
 
 import "./CardFood.scss";
 
-import pizzaImg from "../../../assets/img/card-food.jpeg";
-import cardFoodImg from "../../../assets/img/card-food.jpeg";
 import { Button, ModalWindow } from "../../ui/index";
 
-function CardFood() {
+function CardFood({
+  _id,
+  imageUrl,
+  name,
+  description,
+  price,
+  weight,
+  onClickAddPizza,
+  category,
+}) {
+  const sizesPizzas = ["Маленькая", "Средняя", "Большая"];
+  const typesPizzas = ["Тонкое", "Традиционное"];
   const [modalActive, setModalActive] = useState(false);
+  const [activeType, setActiveType] = useState(0);
+  const [activeSize, setActiveSize] = useState(0);
+
+  const onSelectType = (index) => {
+    setActiveType(index);
+  };
+
+  const onSelectSize = (index) => {
+    setActiveSize(index);
+  };
+
+  const onAddPizza = () => {
+    const obj = {
+      _id,
+      name,
+      imageUrl,
+      price,
+      size: sizesPizzas[activeSize],
+      type: typesPizzas[activeType],
+      category: setCategory(),
+    };
+    console.log(obj);
+    onClickAddPizza(obj);
+  };
+
+  const setCategory = () => {
+    for (let key in category) {
+      if (category[key]) {
+        return key;
+      }
+    }
+  };
 
   return (
     <>
       <div className="card__food" onClick={() => setModalActive(true)}>
         <div className="card__food-img">
-          <img src={cardFoodImg} alt="Card-foodimage" />
+          <img src={imageUrl} alt="Card-foodimage" />
         </div>
-
-        <h3>Ветчина и грибы</h3>
-        <h5>
-          Ветчина, шампиньоны, увеличенная порция моцареллы, томатный соус
-        </h5>
+        <h3>{name}</h3>
+        <h5>{description}</h5>
         <div className="card__food-down">
           <div className="card__food-down-price">
-            <h3>от 375 Р</h3>
+            <h3>от {price} Р</h3>
           </div>
           <div className="card__food-down-btn">
             <Button color="peach" text="Выбрать" />
@@ -32,27 +70,43 @@ function CardFood() {
       <ModalWindow active={modalActive} setActive={setModalActive}>
         <div className="modal__window-content">
           <div className="modal__window-img">
-            <img src={pizzaImg} alt="pizza-img" />
+            <img src={imageUrl} alt="pizza-img" />
           </div>
           <div className="modal__window-wrapper">
             <div className="modal__window-description">
-              <div className="modal__window-description-title">Додо Микс</div>
+              <div className="modal__window-description-title">{name}</div>
               <div className="modal__window-description-subtitle">
-                30 см, традиционное тесто, 670 г
+                {`${sizesPizzas[activeSize] || sizesPizzas[0]},
+                ${typesPizzas[activeType] || typesPizzas[0]}
+                тесто, ${weight} г`}
               </div>
               <div className="modal__window-description-btnsize">
-                {["Маленькая", "Средняя", "Большая"].map((name) => (
-                  <Button color={"grey"} text={name} />
+                {sizesPizzas.map((name, index) => (
+                  <Button
+                    color="grey"
+                    text={name}
+                    onClick={() => onSelectSize(index)}
+                    active={activeSize === index}
+                  />
                 ))}
               </div>
               <div className="modal__window-description-btntype">
-                {["Традиционное", "Тонкое"].map((type) => (
-                  <Button  color={"grey"} text={type} />
+                {typesPizzas.map((type, index) => (
+                  <Button
+                    color="grey"
+                    text={type}
+                    onClick={() => onSelectType(index)}
+                    active={activeType === index}
+                  />
                 ))}
               </div>
             </div>
             <div className="modal__window-add">
-              <Button  color={"orange"} text={"Добавить в корзину за 745 Р"} />
+              <Button
+                color="orange"
+                text={`Добавить в корзину за ${745} Р`}
+                onClick={onAddPizza}
+              />
             </div>
           </div>
         </div>

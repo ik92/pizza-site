@@ -12,6 +12,23 @@
     color: $grey-text;
     transition: 0.5s ease-in-out;
 
+    &.button--prev {
+      position: relative;
+      padding-left: 40px;
+      font-size: 18px;
+
+      &::after {
+        content: "";
+        position: absolute;
+        background-image: url("../../../assets/img/arrow.svg");
+        width: 20px;
+        height: 20px;
+        top: 12px;
+        left: 10px;
+        transform: rotate(-90deg);
+      }
+    }
+
     &:hover {
       background-color: darken($color: $grey-background, $amount: 5%);
       transition: 0.5s ease-in-out;
@@ -24,6 +41,23 @@
     padding: 10px 20px;
     color: #fff;
     transition: 0.5s ease-in-out;
+
+    &.button--next {
+      position: relative;
+      padding-right: 40px;
+
+      &::after {
+        content: "";
+        position: absolute;
+        background-image: url("../../../assets/img/arrow.svg");
+        width: 20px;
+        height: 20px;
+        top: 12px;
+        right: 10px;
+        transform: rotate(90deg);
+      }
+    }
+
     &:hover {
       transition: 0.5s ease-in-out;
     }
@@ -39,8 +73,50 @@
 
   &--orange {
     background-color: $accent-color;
+
     &:hover {
       background-color: darken($color: $accent-color, $amount: 10%);
     }
+  }
+
+  &--minus {
+    position: relative;
+    border-radius: 100px 0 0 100px;
+    height: 32px;
+
+    &::after {
+      content: "";
+      position: absolute;
+      background-image: url("../../../assets/img/minus.svg");
+      background-position: center;
+      width: 20px;
+      height: 20px;
+      top: 5px;
+      left: 6px;
+      z-index: 50;
+    }
+  }
+
+  &--plus {
+    position: relative;
+    border-radius: 0 100px 100px 0;
+    height: 32px;
+
+    &::after {
+      content: "";
+      position: absolute;
+      background-image: url("../../../assets/img/plus.svg");
+      background-position: center;
+      width: 20px;
+      height: 20px;
+      top: 5px;
+      left: 6px;
+      z-index: 50;
+    }
+  }
+
+  &.active {
+    background-color: darken($color: $grey-background, $amount: 10%);
+    transition: 0.5s ease-in-out;
   }
 }

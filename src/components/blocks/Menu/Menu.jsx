@@ -1,12 +1,22 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { Link } from "react-router-dom";
 
 import { Button } from "../../ui/index";
 
 import "./Menu.scss";
 
-function Menu() {
-  const getScroll = () => {
+function Menu({ totalCount }) {
+  useEffect(() => {
+    addScroll();
+    return () => deleteScroll();
+  }, []);
+
+  const addScroll = () => {
     window.addEventListener("scroll", scrollFunction);
+  };
+
+  const deleteScroll = () => {
+    window.removeEventListener("scroll", scrollFunction);
   };
 
   const scrollFunction = () => {
@@ -22,8 +32,6 @@ function Menu() {
       menu.classList.remove("fixed");
     }
   };
-
-  getScroll();
 
   return (
     <div className="menu">
@@ -60,9 +68,13 @@ function Menu() {
               </li>
             </ul>
           </nav>
-          <div className="menu__basket">
-            <Button color="orange" text="Корзина" />
-          </div>
+          <Link to={"/basket"} className="menu__basket">
+            <Button
+              basket="basket"
+              color="orange"
+              text={totalCount ? `Корзина | ${totalCount}` : "Корзина"}
+            />
+          </Link>
         </div>
       </div>
     </div>
