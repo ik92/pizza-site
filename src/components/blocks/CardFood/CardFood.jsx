@@ -4,6 +4,8 @@ import "./CardFood.scss";
 
 import { Button, ModalWindow } from "../../ui/index";
 
+import { coefficientSize, coefficientType } from "../../../consts";
+
 function CardFood({
   _id,
   imageUrl,
@@ -33,7 +35,7 @@ function CardFood({
       _id,
       name,
       imageUrl,
-      price,
+      price: setPriceOrWeight(price),
       size: sizesPizzas[activeSize],
       type: typesPizzas[activeType],
       category: setCategory(),
@@ -48,6 +50,14 @@ function CardFood({
         return key;
       }
     }
+  };
+
+  const setPriceOrWeight = (el) => {
+    return (
+      el *
+      coefficientSize[sizesPizzas[activeSize]] *
+      coefficientType[typesPizzas[activeType]]
+    );
   };
 
   return (
@@ -78,7 +88,7 @@ function CardFood({
               <div className="modal__window-description-subtitle">
                 {`${sizesPizzas[activeSize] || sizesPizzas[0]},
                 ${typesPizzas[activeType] || typesPizzas[0]}
-                тесто, ${weight} г`}
+                тесто, ${setPriceOrWeight(weight)} г`}
               </div>
               <div className="modal__window-description-btnsize">
                 {sizesPizzas.map((name, index) => (
@@ -104,7 +114,7 @@ function CardFood({
             <div className="modal__window-add">
               <Button
                 color="orange"
-                text={`Добавить в корзину за ${745} Р`}
+                text={`Добавить в корзину за ${setPriceOrWeight(price)} Р`}
                 onClick={onAddPizza}
               />
             </div>

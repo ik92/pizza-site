@@ -8,19 +8,28 @@ import trashSvg from "../../../assets/img/trash.svg";
 
 import "./BasketItem.scss";
 
-const BasketItem = () => {
+const BasketItem = ({
+  count,
+  _id,
+  name,
+  imageUrl,
+  price,
+  category,
+  size,
+  type,
+}) => {
   const { pathname } = useLocation();
 
   return (
     <div className="basket__item">
       <div className="basket__item-left">
         <div className="basket__item-img">
-          <img src={pizzaLogo} alt="pizzaLogo" />
+          <img src={imageUrl} alt="pizzaLogo" />
         </div>
         <div className="basket__item-descr">
-          <div className="basket__item-descr-title">Додо Микс</div>
+          <div className="basket__item-descr-title">{name}</div>
           <div className="basket__item-descr-subtitle">
-            Средняя 30 см, традиционное тесто
+            {size}, {type} тесто
           </div>
         </div>
       </div>
@@ -29,19 +38,19 @@ const BasketItem = () => {
           <div className="basket__item-score">
             <Button color="grey" minus="minus" />
             <div className="basket__item-num">
-              <span>4</span>
+              <span>{count}</span>
             </div>
             <Button color="grey" plus="plus" />
           </div>
         ) : (
           <div className="basket__item-score">
             <div className="basket__item-num">
-              <span>4 шт.</span>
+              <span>{count} шт.</span>
             </div>
           </div>
         )}
 
-        <div className="basket__item-allprice">1 250 ₽</div>
+        <div className="basket__item-allprice">{count * price} ₽</div>
         {pathname === "/basket" && (
           <div className="basket__item-trash">
             <img src={trashSvg} alt="trashSvg" />

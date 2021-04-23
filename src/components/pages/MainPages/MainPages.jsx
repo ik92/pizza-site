@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addPizzaToBasket } from "../../../redux/actions/basket";
+import { addElementToBasket } from "../../../redux/actions/basket";
 import { fetchPizzas } from "../../../redux/actions/pizzas";
 
 import {
@@ -20,17 +20,16 @@ function MainPages() {
   const { pizzas } = useSelector((state) => state.pizzas);
   const { totalCount } = useSelector((state) => state.basket);
   console.log(pizzas);
-  console.log(totalCount);
 
   const handleAddPizzaToBasket = (obj) => {
-    dispatch(addPizzaToBasket(obj));
+    dispatch(addElementToBasket(obj));
   };
 
   return (
     <>
       <div className="container">
         <Menu totalCount={totalCount} />
-        <SliderBlock />
+        <SliderBlock pizzas={pizzas} />
         <BlockFood pizzas={pizzas} onClickAddPizza={handleAddPizzaToBasket} />
         {/* <BlockFood /> */}
         {/* <BlockFood /> */}

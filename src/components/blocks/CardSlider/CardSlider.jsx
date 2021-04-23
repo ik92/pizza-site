@@ -2,17 +2,15 @@ import React from "react";
 
 import "./CardSlider.scss";
 
-import cardSlider from "../../../assets/img/card-slider.jpeg";
-
-function CardSlider() {
+function CardSlider({ img, name, price }) {
   return (
     <div className="card__slider">
       <div className="card__slider-img">
-        <img src={cardSlider} alt="Card slider" />
+        <img src={img} alt="Card slider" />
       </div>
       <div className="card__slider-text">
-        <div className="card__slider-text-title">Нежный лосось</div>
-        <div className="card__slider-text-subtitle">от 465р</div>
+        <div className="card__slider-text-title">{name}</div>
+        <div className="card__slider-text-subtitle">от {price} р</div>
       </div>
     </div>
   );

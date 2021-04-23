@@ -11,7 +11,7 @@ import sliderImg4 from "../../../assets/img/slider/slider-4.jpeg";
 import sliderImg5 from "../../../assets/img/slider/slider-5.jpeg";
 import sliderImg6 from "../../../assets/img/slider/slider-6.jpeg";
 
-function SliderBlock() {
+function SliderBlock({ pizzas }) {
   return (
     <div className="slider__block">
       <Slider
@@ -34,6 +34,7 @@ function SliderBlock() {
       />
       <h2>Новое и популярное</h2>
       <Slider
+        pizzas={pizzas}
         slidesPerView={4.5}
         size="small"
         pagination={false}

@@ -1,6 +1,11 @@
 .basket__wrapper {
   min-height: 66.5vh;
 
+  .basket__title {
+    display: flex;
+    justify-content: space-between;
+  }
+
   .basket__btn {
     display: flex;
     justify-content: space-between;
@@ -9,8 +14,5 @@
   h1,
   h2 {
     margin: 30px 0;
-  }
-  h2 {
-    text-align: right;
   }
 }

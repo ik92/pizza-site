@@ -1,4 +1,4 @@
-import { ADD_PIZZA_TO_BASKET } from "../consts";
+import { ADD_ELEMENT_TO_BASKET } from "../consts";
 
 const initialState = {
   items: {
@@ -37,7 +37,7 @@ const getTotalCount = (items) =>
 
 const basket = (state = initialState, action) => {
   switch (action.type) {
-    case ADD_PIZZA_TO_BASKET: {
+    case ADD_ELEMENT_TO_BASKET: {
       const currentPizzaItems = !state.items[action.payload.category][
         action.payload._id
       ]

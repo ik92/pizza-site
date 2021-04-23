@@ -25,6 +25,7 @@ function Slider({
   autoplay,
   mousewheel,
   size,
+  pizzas,
 }) {
   SwiperCore.use([Navigation, Pagination, Autoplay, Mousewheel]);
 
@@ -44,13 +45,15 @@ function Slider({
                 <img src={image} alt="Slider_image" />
               </SwiperSlide>
             ))
-          : Array(10)
-              .fill(0)
-              .map((page) => (
-                <SwiperSlide>
-                  <CardSlider />
-                </SwiperSlide>
-              ))}
+          : pizzas.map((pizza) => (
+              <SwiperSlide>
+                <CardSlider
+                  img={pizza.imageUrl}
+                  name={pizza.name}
+                  price={pizza.price}
+                />
+              </SwiperSlide>
+            ))}
       </Swiper>
     </div>
   );
