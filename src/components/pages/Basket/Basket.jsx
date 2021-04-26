@@ -1,6 +1,11 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import {
+  minusBasketItem,
+  plusBasketItem,
+  removeBasketItem,
+} from "../../../redux/actions/basket";
 
 import { BasketItem, Footer } from "../../blocks";
 import { Button } from "../../ui";
@@ -14,6 +19,8 @@ const Basket = ({ title, order }) => {
     totalPrice,
   } = useSelector((state) => state.basket);
   console.log(pizzas);
+
+  const dispatch = useDispatch();
 
   const typesPizzas = ["Тонкое", "Традиционное"];
 
@@ -36,6 +43,18 @@ const Basket = ({ title, order }) => {
     });
   });
 
+  const onRemoveItem = (category, _id, size, type) => {
+    dispatch(removeBasketItem(category, _id, size, type));
+  };
+
+  const onPlusItem = (category, _id, size, type) => {
+    dispatch(plusBasketItem(category, _id, size, type));
+  };
+
+  const onMinusItem = (category, _id, size, type) => {
+    dispatch(minusBasketItem(category, _id, size, type));
+  };
+
   console.log(arrPizza);
 
   return (
@@ -56,6 +75,9 @@ const Basket = ({ title, order }) => {
                           key={inner[0]._id}
                           count={inner.length}
                           {...inner[0]}
+                          onMinus={onMinusItem}
+                          onPlus={onPlusItem}
+                          onRemove={onRemoveItem}
                         />
                       );
                     }

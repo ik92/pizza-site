@@ -1,4 +1,9 @@
-import { ADD_ELEMENT_TO_BASKET } from "../consts";
+import {
+  ADD_ELEMENT_TO_BASKET,
+  MINUS_BASKET_ITEM,
+  PLUS_BASKET_ITEM,
+  REMOVE_BASKET_ITEM,
+} from "../consts";
 
 const initialState = {
   items: {
@@ -52,6 +57,112 @@ const basket = (state = initialState, action) => {
         [action.payload.category]: {
           ...state.items[action.payload.category],
           [action.payload._id]: currentPizzaItems,
+        },
+      };
+
+      const price = getTotalPrice(newItems);
+      const count = getTotalCount(newItems);
+
+      return {
+        ...state,
+        items: newItems,
+        totalPrice: price,
+        totalCount: count,
+      };
+    }
+
+    case REMOVE_BASKET_ITEM: {
+      const currentPizzaItems = [
+        ...state.items[action.payload.category][action.payload._id].filter(
+          (arr) =>
+            arr.size !== action.payload.size || arr.type !== action.payload.type
+        ),
+      ];
+
+      const newItems = {
+        ...state.items,
+        [action.payload.category]: {
+          ...state.items[action.payload.category],
+          [action.payload._id]: currentPizzaItems,
+        },
+      };
+
+      const price = getTotalPrice(newItems);
+      const count = getTotalCount(newItems);
+
+      return {
+        ...state,
+        items: newItems,
+        totalPrice: price,
+        totalCount: count,
+      };
+    }
+    case PLUS_BASKET_ITEM: {
+      const currentPizzaItems = [
+        ...state.items[action.payload.category][action.payload._id],
+        [
+          ...state.items[action.payload.category][action.payload._id].filter(
+            (arr) =>
+              arr.size === action.payload.size &&
+              arr.type === action.payload.type
+          ),
+        ][0],
+      ];
+
+      const newItems = {
+        ...state.items,
+        [action.payload.category]: {
+          ...state.items[action.payload.category],
+          [action.payload._id]: currentPizzaItems,
+        },
+      };
+
+      const price = getTotalPrice(newItems);
+      const count = getTotalCount(newItems);
+
+      return {
+        ...state,
+        items: newItems,
+        totalPrice: price,
+        totalCount: count,
+      };
+    }
+
+    case MINUS_BASKET_ITEM: {
+      // const [first, ...arr] = [
+      //   ...state.items[action.payload.category][action.payload._id].filter(
+      //     (arr) =>
+      //       arr.size === action.payload.size && arr.type === action.payload.type
+      //   ),
+      // ];
+
+      const currentPizzaItems = [
+        ...state.items[action.payload.category][action.payload._id],
+      ];
+
+      let arrWithoutRemoveElement = [];
+
+      for (let i = 0; i < currentPizzaItems.length; i++) {
+        if (
+          currentPizzaItems[i].size === action.payload.size &&
+          currentPizzaItems[i].type === action.payload.type
+        ) {
+          delete currentPizzaItems[i];
+          break;
+        }
+      }
+
+      for (let i = 0; i < currentPizzaItems.length; i++) {
+        if (currentPizzaItems[i]) {
+          arrWithoutRemoveElement.push(currentPizzaItems[i]);
+        }
+      }
+
+      const newItems = {
+        ...state.items,
+        [action.payload.category]: {
+          ...state.items[action.payload.category],
+          [action.payload._id]: arrWithoutRemoveElement,
         },
       };
 

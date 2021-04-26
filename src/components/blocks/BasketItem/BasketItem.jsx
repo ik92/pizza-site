@@ -3,7 +3,6 @@ import { useLocation } from "react-router";
 
 import { Button } from "../../ui";
 
-import pizzaLogo from "../../../assets/img/card-food.jpeg";
 import trashSvg from "../../../assets/img/trash.svg";
 
 import "./BasketItem.scss";
@@ -17,8 +16,23 @@ const BasketItem = ({
   category,
   size,
   type,
+  onMinus,
+  onPlus,
+  onRemove,
 }) => {
   const { pathname } = useLocation();
+
+  const handleRemoveClick = () => {
+    onRemove(category, _id, size, type);
+  };
+
+  const handlePlusItem = () => {
+    onPlus(category, _id, size, type);
+  };
+
+  const handleMinusItem = () => {
+    onMinus(category, _id, size, type);
+  };
 
   return (
     <div className="basket__item">
@@ -36,11 +50,11 @@ const BasketItem = ({
       <div className="basket__item-right">
         {pathname === "/basket" ? (
           <div className="basket__item-score">
-            <Button color="grey" minus="minus" />
+            <Button onClick={handleMinusItem} color="grey" minus="minus" />
             <div className="basket__item-num">
               <span>{count}</span>
             </div>
-            <Button color="grey" plus="plus" />
+            <Button onClick={handlePlusItem} color="grey" plus="plus" />
           </div>
         ) : (
           <div className="basket__item-score">
@@ -53,7 +67,7 @@ const BasketItem = ({
         <div className="basket__item-allprice">{count * price} ₽</div>
         {pathname === "/basket" && (
           <div className="basket__item-trash">
-            <img src={trashSvg} alt="trashSvg" />
+            <img onClick={handleRemoveClick} src={trashSvg} alt="trashSvg" />
           </div>
         )}
       </div>
